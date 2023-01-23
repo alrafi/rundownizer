@@ -13,6 +13,9 @@ module.exports = {
     },
     extend: {
       fontSize: [],
+      colors: {
+        secondary: "#677487",
+      },
     },
   },
   plugins: [],
