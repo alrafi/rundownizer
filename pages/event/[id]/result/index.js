@@ -100,7 +100,7 @@ export default function Result() {
         <div className="mt-2 flex flex-col items-start">
           {artists.map((artist) => {
             return (
-              <div className="flex rounded-lg w-full p-2 mb-2">
+              <div className="flex rounded-lg w-full p-2 mb-2" key={artist.id}>
                 <img
                   src={artist.img}
                   alt=""

@@ -132,7 +132,10 @@ export default function Detail() {
         <div className="mt-2 flex flex-col items-start h-[80vh] overflow-auto pb-12 no-scroll">
           {artists.map((artist) => {
             return (
-              <div className="flex border border-gray-300 rounded-lg w-full p-2 mb-2">
+              <div
+                className="flex border border-gray-300 rounded-lg w-full p-2 mb-2"
+                key={artist.id}
+              >
                 <img
                   src={artist.img}
                   alt=""
