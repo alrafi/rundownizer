@@ -1,12 +1,10 @@
 import Head from "next/head";
 import { useState } from "react";
-import {
-  AiOutlineArrowLeft,
-  AiOutlineClockCircle,
-  AiOutlineCheckCircle,
-} from "react-icons/ai";
+import { AiOutlineClockCircle, AiOutlineCheckCircle } from "react-icons/ai";
 import { useRouter } from "next/router";
-import { FiRefreshCcw } from "react-icons/fi";
+import { FaRegCalendarAlt } from "react-icons/fa";
+import { GoLocation } from "react-icons/go";
+import { FiRefreshCcw, FiActivity } from "react-icons/fi";
 import { BiCube } from "react-icons/bi";
 
 const ARTISTS = [
@@ -76,7 +74,7 @@ const ARTISTS = [
   },
 ];
 
-export default function Result() {
+export default function Save() {
   const [artists, setArtists] = useState([...ARTISTS]);
 
   const router = useRouter();
@@ -87,17 +85,29 @@ export default function Result() {
         <title>Day 1 - Synchronize Fest | Rundownizer</title>
       </Head>
 
-      <main className="max-w-md w-full px-4 py-6 relative">
-        <div className=" flex items-center">
-          <button onClick={() => router.back()}>
-            <AiOutlineArrowLeft />
-          </button>
-          <h1 className="text-lg font-bold ml-1">
-            Result: Day 1 - Synchronize Fest
+      <main className="max-w-md w-full relative">
+        <div className="bg-[#3D56F5] w-full flex flex-col text-white px-6 pb-4 pt-6">
+          <h1 className="text-xl font-bold self-center mb-2">
+            Your Rundownizer!
           </h1>
+          <div className="font-light text-sm text-[#D4DBEA]">
+            <div className="flex mb-1">
+              <FiActivity />
+              <p className="ml-1">Synchronize Fest</p>
+            </div>
+            <div className="flex mb-1">
+              <FaRegCalendarAlt />
+              <p className="ml-1">1-3 September 2023</p>
+            </div>
+            <div className="flex mb-1">
+              <GoLocation />
+              <p className="ml-1">Gambir Expo Kemayoran, Jakarta</p>
+            </div>
+          </div>
+          <p></p>
         </div>
 
-        <div className="mt-2 flex flex-col items-start">
+        <div className="flex flex-col items-start px-4 py-6">
           {artists.map((artist) => {
             return (
               <div className="flex rounded-lg w-full p-2 mb-2" key={artist.id}>
@@ -111,10 +121,6 @@ export default function Result() {
                   <div className="flex flex-col w-full">
                     <div className="flex justify-between">
                       <p className="mb-2">{artist.name}</p>
-                      <button className="flex items-center text-[#3D56F5] font-light">
-                        <FiRefreshCcw />
-                        <p className="text-sm ml-1">Ganti</p>
-                      </button>
                     </div>
                     {artist.isClash ? (
                       <div className="flex bg-[#D1FADF] rounded-md mb-2 items-center py-1 px-2 text-[#05603A]">
@@ -147,12 +153,6 @@ export default function Result() {
               </div>
             );
           })}
-        </div>
-
-        <div className="w-full mt-4">
-          <button className="px-2 py-2 rounded-lg bg-[#3D56F5] disabled:bg-[#E6E7FD] w-full text-white disabled:cursor-not-allowed flex justify-center items-center">
-            Simpan
-          </button>
         </div>
       </main>
     </div>
